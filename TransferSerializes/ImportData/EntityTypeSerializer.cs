@@ -21,22 +21,24 @@ namespace TransferSerializes.ImportData
         public override void Import(object jsonObject)
         {
             var entityType = (jsonObject as JObject).ToObject<IDataImportDatabookType>();
+            var tmpEntityType = entityType;
 
             var entityTypeName = entityType.Name;
             var activeEntityType = IntegrationServiceClient.GetEntitiesWithFilter<IDataImportDatabookType>(x => x.Name == entityTypeName && x.EntityTypeGuid == entityType.EntityTypeGuid);
             if (activeEntityType != null)
             {
-                Logger.Info(string.Format("Тип сущности {0} уже существует", entityTypeName));
-                return;
+                Logger.Info(string.Format("Тип сущности {0} будет обновлен.", entityTypeName));
+                entityType = activeEntityType.FirstOrDefault();
             }
             
             // Для теста.
-            if (entityTypeName == "Представители")
+            if (entityTypeName == "Виды деятельности ОКВЭД")
             {
                 int a = 8;
             }
 
             var mainEntityTypeName = entityType.MainEntityType?.Name;
+
             if (!string.IsNullOrWhiteSpace(mainEntityTypeName))
             {
                 // Если не найдена сущность вылетает исключение и сущность не создается.
@@ -51,21 +53,21 @@ namespace TransferSerializes.ImportData
                 catch
                 {
                     var newMainEntityType = IntegrationServiceClient.CreateEntity<IDataImportDatabookType>(entityType.MainEntityType);
-                    Logger.Info(string.Format("Создан главный справочник Тип сущности {0}", newMainEntityType.Name));
 
-                    // TODO сделать рекурсивное создание, тк Тип может еще быть не создан в главном типе сущности.
+                    Logger.Info(string.Format("Создан главный справочник Тип сущности {0}", newMainEntityType.Name));
                     entityType.MainEntityType = newMainEntityType;
                 }
             }
 
-            var availableAncestorGuids = entityType.AncestorGuids;
+            var availableAncestorGuids = tmpEntityType.AncestorGuids;
             entityType.AncestorGuids = null;
-            var newEntityType = IntegrationServiceClient.CreateEntity<IDataImportDatabookType>(entityType);
-            Logger.Info(string.Format("Создан Тип сущности {0}", entityTypeName));
+            var newEntityType = activeEntityType != null ? entityType : IntegrationServiceClient.CreateEntity<IDataImportDatabookType>(entityType);
+            
+            if (activeEntityType == null)
+                Logger.Info(string.Format("Создан Тип сущности {0}", entityTypeName));
 
             CollectionHelper.CellectionItemsClear("IDataImportDatabookType", newEntityType.Id.ToString(), "AncestorGuids");
 
-            // TODO Понять как заполнять коллекцию
             foreach (var availableAncestorGuid in availableAncestorGuids)
             {
                 IntegrationServiceClient.Instance.For<IDataImportDatabookType>()
