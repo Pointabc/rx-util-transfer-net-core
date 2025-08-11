@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Source\\rx-util-transfer-net-core\\TransferSerializes\\TransferSerializes.csproj": {}
+    "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\TransferSerializes.csproj": {}
   },
   "projects": {
-    "C:\\Source\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj": {
+    "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj",
+        "projectUniqueName": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj",
         "projectName": "DrxTransfer",
-        "projectPath": "C:\\Source\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj",
-        "packagesPath": "C:\\Users\\Администратор\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\rx-util-transfer-net-core\\DrxTransfer\\obj\\",
+        "projectPath": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj",
+        "packagesPath": "C:\\Users\\svolk\\.nuget\\packages\\",
+        "outputPath": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Администратор\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\svolk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -50,7 +55,7 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.3, )"
             },
             "Simple.OData.Client": {
               "target": "Package",
@@ -76,32 +81,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.32, 3.1.32]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Source\\rx-util-transfer-net-core\\TransferSerializes\\TransferSerializes.csproj": {
+    "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\TransferSerializes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\rx-util-transfer-net-core\\TransferSerializes\\TransferSerializes.csproj",
+        "projectUniqueName": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\TransferSerializes.csproj",
         "projectName": "TransferSerializes",
-        "projectPath": "C:\\Source\\rx-util-transfer-net-core\\TransferSerializes\\TransferSerializes.csproj",
-        "packagesPath": "C:\\Users\\Администратор\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\rx-util-transfer-net-core\\TransferSerializes\\obj\\",
+        "projectPath": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\TransferSerializes.csproj",
+        "packagesPath": "C:\\Users\\svolk\\.nuget\\packages\\",
+        "outputPath": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Администратор\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\svolk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -115,8 +114,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Source\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj": {
-                "projectPath": "C:\\Source\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj"
+              "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj": {
+                "projectPath": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\DrxTransfer.csproj"
               }
             }
           }
@@ -125,6 +124,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -146,7 +150,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

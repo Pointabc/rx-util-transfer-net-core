@@ -2,6 +2,7 @@
 using Sungero.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
 using System.Text;
@@ -74,10 +75,18 @@ namespace DrxTransfer
       var filter = new ODataExpression(condition);
 
       Logger.Info(string.Format("Получение сущности {0}", (typeof(T))));
+      Console.WriteLine($"\"Получение сущности {{0}}\"", (typeof(T)));
 
       try
       {
         var entities = GetEntitiesByFilter<T>(filter);
+        
+        if (!entities.Any())
+        {
+            Console.WriteLine("Cущность не найдена.");
+            return null;
+        }
+
         return entities;
       }
       catch (Exception ex)
@@ -96,7 +105,11 @@ namespace DrxTransfer
     public static IEnumerable<T> GetEntitiesByFilter<T>(ODataExpression expression) where T : class
     {
       var data = Instance.For<T>().Filter(expression).FindEntriesAsync().Result;
-
+      if (!data.Any())
+            {
+                Console.WriteLine("Cущности не найдены в GetEntitiesByFilter.");
+                return null;
+            }
       return data;
     }
 
