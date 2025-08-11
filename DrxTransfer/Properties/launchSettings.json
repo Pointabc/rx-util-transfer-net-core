@@ -2,7 +2,7 @@
   "profiles": {
     "DrxTransfer": {
       "commandName": "Project",
-      "commandLineArgs": "transfer import \"c:\\tmp\\RxCmd\\EntityTypes.txt\" EntityType -n \"Service User\" -p \"Uldnb3xu777\""
+      "commandLineArgs": "transfer import \"c:\\tmp\\RxCmd\\NavigationParameters.txt\" NavigationParameter -n \"Service User\" -p \"Uldnb3xu777\""
     }
   }
 }

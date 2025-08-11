@@ -25,14 +25,15 @@ namespace TransferSerializes.ImportData
         public override void Import(object jsonObject)
         {
             var navigationParameter = (jsonObject as JObject).ToObject<IImportDataNavigationParameter>();
+            var tmpNavigationParameter = navigationParameter;
 
             var navigationParameterName = navigationParameter.Name;
             var activeNavigationParameter = IntegrationServiceClient
                 .GetEntitiesWithFilter<IImportDataNavigationParameter>(x => x.Name == navigationParameterName);
             if (activeNavigationParameter != null)
             {
-                Logger.Info(string.Format("Справочник Соответствие заполняемых параметров свойства-ссылки {0} уже существует", navigationParameterName));
-                return;
+                Logger.Info(string.Format("Справочник Соответствие заполняемых параметров свойства-ссылки {0} будет обновлен.", navigationParameterName));
+                navigationParameter = activeNavigationParameter.FirstOrDefault();
             }
 
             var entityTypeName = navigationParameter.EntityType?.Name;
@@ -50,12 +51,14 @@ namespace TransferSerializes.ImportData
                 int a = 8;
             }*/
 
-            var availableParameters = navigationParameter.Parameters;
+            var availableParameters = tmpNavigationParameter.Parameters;
             navigationParameter.Parameters = null;
-            var newNavigationParameter = IntegrationServiceClient.CreateEntity<IImportDataNavigationParameter>(navigationParameter);
-            Logger.Info(string.Format("Создан Тип сущности {0}", navigationParameter.Name));
-
+            var newNavigationParameter = activeNavigationParameter != null 
+                ? navigationParameter
+                : IntegrationServiceClient.CreateEntity<IImportDataNavigationParameter>(navigationParameter);
             
+            if (activeNavigationParameter == null)
+                Logger.Info(string.Format("Создан Тип сущности {0}", navigationParameter.Name));
 
             CollectionHelper.CellectionItemsClear("IImportDataNavigationParameter", newNavigationParameter.Id.ToString(), "Parameters");
 
