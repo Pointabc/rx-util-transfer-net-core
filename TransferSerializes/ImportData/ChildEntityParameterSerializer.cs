@@ -13,54 +13,47 @@ using System.Text;
 namespace TransferSerializes.ImportData
 {
     [Export(typeof(SungeroSerializer))]
-    class NavigationParameterSerializer : SungeroSerializer
+    class ChildEntityParameterSerializer : SungeroSerializer
     {
-        public NavigationParameterSerializer() : base()
+        public ChildEntityParameterSerializer() : base()
         {
-            this.EntityName = "NavigationParameter";
-            this.EntityType = "IImportDataNavigationParameter";
+            this.EntityName = "ChildEntityParameter";
+            this.EntityType = "IDataImportChildEntityParameter";
         }
 
-        // TODO Реализовать импорт
         public override void Import(object jsonObject)
         {
-            var navigationParameter = (jsonObject as JObject).ToObject<IImportDataNavigationParameter>();
-            var tmpNavigationParameter = navigationParameter;
+            var childEntityParameter = (jsonObject as JObject).ToObject<IDataImportChildEntityParameter>();
+            var tmpChildEntityParameter = childEntityParameter;
 
-            var navigationParameterName = navigationParameter.Name;
-            var activeNavigationParameter = IntegrationServiceClient
-                .GetEntitiesWithFilter<IImportDataNavigationParameter>(x => x.Name == navigationParameterName);
-            if (activeNavigationParameter != null)
+            var navigationParameterName = childEntityParameter.Name;
+            var activeChildEntityParameter = IntegrationServiceClient
+                .GetEntitiesWithFilter<IDataImportChildEntityParameter>(x => x.Name == navigationParameterName);
+            if (activeChildEntityParameter != null)
             {
                 Logger.Info(string.Format("Справочник Соответствие заполняемых параметров свойства-ссылки {0} будет обновлен.", navigationParameterName));
-                navigationParameter = activeNavigationParameter.FirstOrDefault();
+                childEntityParameter = activeChildEntityParameter.FirstOrDefault();
             }
 
-            var entityTypeName = navigationParameter.EntityType?.Name;
+            var entityTypeName = childEntityParameter.EntityType?.Name;
             if (!string.IsNullOrEmpty(entityTypeName))
             {
                 var entityType = IntegrationServiceClient
-                    .GetEntitiesWithFilter<IDataImportDatabookType>(x => x.Name == navigationParameter.EntityType.Name && x.EntityTypeGuid == navigationParameter.EntityType.EntityTypeGuid)
+                    .GetEntitiesWithFilter<IDataImportDatabookType>(x => x.Name == childEntityParameter.EntityType.Name && x.EntityTypeGuid == childEntityParameter.EntityType.EntityTypeGuid)
                     .FirstOrDefault();
-                navigationParameter.EntityType = entityType;
+                childEntityParameter.EntityType = entityType;
             }
 
-            // Для теста.
-            /*if (entityTypeName == "Представители")
-            {
-                int a = 8;
-            }*/
+            var availableParameters = tmpChildEntityParameter.Parameters;
+            childEntityParameter.Parameters = null;
+            var newChildEntityParameter = activeChildEntityParameter != null
+                ? childEntityParameter
+                : IntegrationServiceClient.CreateEntity<IDataImportChildEntityParameter>(childEntityParameter);
 
-            var availableParameters = tmpNavigationParameter.Parameters;
-            navigationParameter.Parameters = null;
-            var newNavigationParameter = activeNavigationParameter != null 
-                ? navigationParameter
-                : IntegrationServiceClient.CreateEntity<IImportDataNavigationParameter>(navigationParameter);
-            
-            if (activeNavigationParameter == null)
-                Logger.Info(string.Format("Создан Тип сущности {0}", navigationParameter.Name));
+            if (activeChildEntityParameter == null)
+                Logger.Info(string.Format("Создан Тип сущности {0}", childEntityParameter.Name));
 
-            CollectionHelper.CellectionItemsClear("IImportDataNavigationParameter", newNavigationParameter.Id.ToString(), "Parameters");
+            CollectionHelper.CellectionItemsClear("IDataImportChildEntityParameter", newChildEntityParameter.Id.ToString(), "Parameters");
 
             foreach (var parameter in availableParameters)
             {
@@ -72,13 +65,22 @@ namespace TransferSerializes.ImportData
                         .FirstOrDefault();
                 }
 
-                IntegrationServiceClient.Instance.For<IImportDataNavigationParameter>()
-                    .Key(newNavigationParameter)
+                IImportDataNavigationParameter navigationParameter = parameter.NavigationParameter;
+                if (navigationParameter != null)
+                {
+                    navigationParameter = IntegrationServiceClient
+                        .GetEntitiesWithFilter<IImportDataNavigationParameter>(x => x.Name == parameter.NavigationParameter.Name)
+                        .FirstOrDefault();
+                }
+
+                IntegrationServiceClient.Instance.For<IDataImportChildEntityParameter>()
+                    .Key(newChildEntityParameter)
                     .NavigateTo(x => x.Parameters)
                     .Set(
-                    new { 
+                    new
+                    {
                         Id = parameter.Id,
-                        PropertyName =  parameter.PropertyName,
+                        PropertyName = parameter.PropertyName,
                         PropertyTypeGuid = parameter.PropertyTypeGuid,
                         LocalizedPropertyName = parameter.LocalizedPropertyName,
                         PropertyType = parameter.PropertyType,
@@ -90,7 +92,7 @@ namespace TransferSerializes.ImportData
                         DefaultValueId = parameter.DefaultValueId,
                         DefaultValueType = parameter.DefaultValueType,
                         Priority = parameter.Priority,
-                        NavigationParameter = parameter.NavigationParameter,
+                        NavigationParameter = navigationParameter,
                         IsKey = parameter.IsKey,
                         DefaultValue = parameter.DefaultValue
                     })
@@ -101,7 +103,7 @@ namespace TransferSerializes.ImportData
 
         protected override IEnumerable<dynamic> Export()
         {
-            return IntegrationServiceClient.Instance.For<IImportDataNavigationParameter>()
+            return IntegrationServiceClient.Instance.For<IDataImportChildEntityParameter>()
                 .Expand(c => c.EntityType)
                 .Expand(c => c.Parameters.Select(c =>
                 new
