@@ -21,42 +21,100 @@ namespace TransferSerializes.ImportData
         // TODO Реализовать импорт
         public override void Import(object jsonObject)
         {
-            /*var entityType = (jsonObject as JObject).ToObject<IDataImportDatabookType>();
+            var entityParameter = (jsonObject as JObject).ToObject<IDataImportEntityParameter>();
+            var tmpEntityParameter = entityParameter;
 
-            var entityTypeName = entityType.Name;
-            var activeEntityType = IntegrationServiceClient.GetEntitiesWithFilter<IDataImportDatabookType>(r => r.Name == entityTypeName);
-            if (activeEntityType != null)
+            var entityParameterName = entityParameter.Name;
+            var activeEntityParameter = IntegrationServiceClient
+                .GetEntitiesWithFilter<IDataImportEntityParameter>(x => x.Name == entityParameterName);
+            if (activeEntityParameter != null)
             {
-                Logger.Info(string.Format("Тип сущности {0} уже существует", entityTypeName));
-                return;
+                Logger.Info(string.Format("Справочник Соответствие заполняемых параметров сущности {0} будет обновлен.", entityParameterName));
+                entityParameter = activeEntityParameter.FirstOrDefault();
             }
 
-            var documentType = IntegrationServiceClient
-              .GetEntitiesWithFilter<IDataImportDatabookType>(t => t.Name == documentKind.DocumentType.Name)
-              .FirstOrDefault();
-            //entityType.DocumentType = documentType;
-
-            var availableAncestorGuids = entityType.AncestorGuids;
-            entityType.AncestorGuids = null;
-            var newEntityType = IntegrationServiceClient.CreateEntity<IDataImportDatabookType>(entityType);
-
-            CollectionHelper.CellectionItemsClear("IEntityType", newEntityType.Id.ToString(), "AncestorGuids");
-
-            // TODO Понять как заполнять коллекцию
-            foreach (var availableAncestorGuid in availableAncestorGuids)
+            var entityTypeName = entityParameter.EntityType?.Name;
+            if (!string.IsNullOrEmpty(entityTypeName))
             {
-                //var availableGuid = IntegrationServiceClient.GetEntitiesWithFilter<IEntityTypeAncestorGuid>(a => a.Guid == availableAncestorGuid.Guid).FirstOrDefault();
-                IntegrationServiceClient.Instance.For<IDataImportDatabookType>().Key(newEntityType)
-                  .NavigateTo(x => x.AncestorGuids).Set(new { Guid = "" }).InsertEntryAsync().Wait();
-            }*/
+                var entityType = IntegrationServiceClient
+                    .GetEntitiesWithFilter<IDataImportDatabookType>(x => x.Name == entityParameter.EntityType.Name && x.EntityTypeGuid == entityParameter.EntityType.EntityTypeGuid)
+                    .FirstOrDefault();
+                entityParameter.EntityType = entityType;
+            }
+
+            var availableParameters = tmpEntityParameter.EntityParameterParameters;
+            //entityParameter.Parameters = null;
+            entityParameter.Parameters = new List<ICollectionParameter>();
+            entityParameter.EntityParameterParameters = new List<ICollectionEntityParameterParameter>();
+            var newEntityParameter = activeEntityParameter != null
+                ? entityParameter
+                : IntegrationServiceClient.CreateEntity<IDataImportEntityParameter>(entityParameter);
+
+            if (activeEntityParameter == null)
+                Logger.Info(string.Format("Создан справочник Соответствие заполняемых параметров сущности {0}", entityParameter.Name));
+
+            CollectionHelper.CellectionItemsClear("IDataImportEntityParameter", newEntityParameter.Id.ToString(), "EntityParameterParameters");
+
+            foreach (var parameter in availableParameters)
+            {
+                IDataImportDatabookType entityType = parameter.EntityType;
+                if (parameter.EntityType != null)
+                {
+                    entityType = IntegrationServiceClient
+                        .GetEntitiesWithFilter<IDataImportDatabookType>(x => x.Name == parameter.EntityType.Name && x.EntityTypeGuid == parameter.EntityType.EntityTypeGuid)
+                        .FirstOrDefault();
+                }
+
+                IImportDataNavigationParameter navigationParameter = parameter.NavigationParameter;
+                if (navigationParameter != null)
+                {
+                    navigationParameter = IntegrationServiceClient
+                        .GetEntitiesWithFilter<IImportDataNavigationParameter>(x => x.Name == parameter.NavigationParameter.Name)
+                        .FirstOrDefault();
+                }
+
+                IDataImportChildEntityParameter childEntityParameter = parameter.ChildEntityParameter;
+                if (childEntityParameter != null)
+                {
+                    childEntityParameter = IntegrationServiceClient
+                        .GetEntitiesWithFilter<IDataImportChildEntityParameter>(x => x.Name == parameter.ChildEntityParameter.Name)
+                        .FirstOrDefault();
+                }
+
+                IntegrationServiceClient.Instance.For<IDataImportEntityParameter>()
+                    .Key(newEntityParameter)
+                    .NavigateTo(x => x.EntityParameterParameters)
+                    .Set(
+                    new
+                    {
+                        Id = parameter.Id,
+                        PropertyName = parameter.PropertyName,
+                        PropertyTypeGuid = parameter.PropertyTypeGuid,
+                        LocalizedPropertyName = parameter.LocalizedPropertyName,
+                        PropertyType = parameter.PropertyType,
+                        IsRequired = parameter.IsRequired,
+                        ExcelColumn = parameter.ExcelColumn,
+                        SQLColumn = parameter.SQLColumn,
+                        FillOption = parameter.FillOption,
+                        EntityType = entityType,
+                        DefaultValueId = parameter.DefaultValueId,
+                        DefaultValueType = parameter.DefaultValueType,
+                        Priority = parameter.Priority,
+                        NavigationParameter = navigationParameter,
+                        IsKey = parameter.IsKey,
+                        DefaultValue = parameter.DefaultValue,
+                        ChildEntityParameter = childEntityParameter
+                    })
+                    .InsertEntryAsync()
+                    .Wait();
+            }
         }
 
         protected override IEnumerable<dynamic> Export()
         {
             return IntegrationServiceClient.Instance.For<IDataImportEntityParameter>()
-                //.Expand(c => new { c.Parameters, c.EntityType })
                 .Expand(c => c.EntityType)
-                .Expand(c => c.Parameters.Select( c =>
+                .Expand(c => c.EntityParameterParameters.Select( c =>
                 new
                 {
                     c.Id,
@@ -74,7 +132,8 @@ namespace TransferSerializes.ImportData
                     c.NavigationParameter,
                     c.Priority,
                     c.DefaultValueId,
-                    c.DefaultValueType
+                    c.DefaultValueType,
+                    c.ChildEntityParameter
                 }
                 ))
                 .FindEntriesAsync()

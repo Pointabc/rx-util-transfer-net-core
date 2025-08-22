@@ -31,12 +31,6 @@ namespace TransferSerializes.ImportData
                 entityType = activeEntityType.FirstOrDefault();
             }
             
-            // Для теста.
-            if (entityTypeName == "Виды деятельности ОКВЭД")
-            {
-                int a = 8;
-            }
-
             var mainEntityTypeName = entityType.MainEntityType?.Name;
 
             if (!string.IsNullOrWhiteSpace(mainEntityTypeName))

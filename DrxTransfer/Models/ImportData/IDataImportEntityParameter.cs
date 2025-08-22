@@ -10,6 +10,7 @@ namespace DrxTransfer.Models.ImportData
     /// </summary>
     public class IDataImportEntityParameter : IDataImportEntityParameterBase
     {
+        public List<ICollectionEntityParameterParameter> EntityParameterParameters { get; set; }
         public string Action { get; set; }                                  // Действие.
         public string HistoricalField { get; set; }                         // Историческое поле.
     }

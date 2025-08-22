@@ -11,7 +11,7 @@ namespace DrxTransfer.Models.ImportData
     /// </summary>
     public class ICollectionParameter
     {
-        public int Id { get; set; }                                                // ИД.
+        public int Id { get; set; }                                                 // ИД.
         public string PropertyName { get; set; }                                    // Наименование свойства.
         public string PropertyTypeGuid { get; set; }                                // Guid типа свойства.
         public string LocalizedPropertyName { get; set; }                           // Локализованное имя свойства.
@@ -27,6 +27,5 @@ namespace DrxTransfer.Models.ImportData
         public int DefaultValueId { get; set; }                                     // ИД значения по умолчанию.
         public string DefaultValueType { get; set; }                                // Тип значения по умолчанию.
         public bool? IsKey { get; set; }                                            // Ключевое поле.
-        public IDataImportChildEntityParameter ChildEntityParameter { get; set; }   // Дочернее Соответствие заполняемых параметров строки свойства-коллекции
     }
 }

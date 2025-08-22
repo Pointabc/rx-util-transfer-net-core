@@ -26,12 +26,12 @@ namespace TransferSerializes.ImportData
             var childEntityParameter = (jsonObject as JObject).ToObject<IDataImportChildEntityParameter>();
             var tmpChildEntityParameter = childEntityParameter;
 
-            var navigationParameterName = childEntityParameter.Name;
+            var childEntityParameterName = childEntityParameter.Name;
             var activeChildEntityParameter = IntegrationServiceClient
-                .GetEntitiesWithFilter<IDataImportChildEntityParameter>(x => x.Name == navigationParameterName);
+                .GetEntitiesWithFilter<IDataImportChildEntityParameter>(x => x.Name == childEntityParameterName);
             if (activeChildEntityParameter != null)
             {
-                Logger.Info(string.Format("Справочник Соответствие заполняемых параметров свойства-ссылки {0} будет обновлен.", navigationParameterName));
+                Logger.Info(string.Format("Справочник Соответствие заполняемых параметров строки свойства-коллекции {0} будет обновлен.", childEntityParameterName));
                 childEntityParameter = activeChildEntityParameter.FirstOrDefault();
             }
 
@@ -51,7 +51,7 @@ namespace TransferSerializes.ImportData
                 : IntegrationServiceClient.CreateEntity<IDataImportChildEntityParameter>(childEntityParameter);
 
             if (activeChildEntityParameter == null)
-                Logger.Info(string.Format("Создан Тип сущности {0}", childEntityParameter.Name));
+                Logger.Info(string.Format("Создан справочник Соответствие заполняемых параметров строки свойства-коллекции {0}", childEntityParameter.Name));
 
             CollectionHelper.CellectionItemsClear("IDataImportChildEntityParameter", newChildEntityParameter.Id.ToString(), "Parameters");
 

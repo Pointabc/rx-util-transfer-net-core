@@ -75,7 +75,6 @@ namespace DrxTransfer
       var filter = new ODataExpression(condition);
 
       Logger.Info(string.Format("Получение сущности {0}", (typeof(T))));
-      Console.WriteLine($"\"Получение сущности {{0}}\"", (typeof(T)));
 
       try
       {

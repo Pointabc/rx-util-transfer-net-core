@@ -45,12 +45,6 @@ namespace TransferSerializes.ImportData
                 navigationParameter.EntityType = entityType;
             }
 
-            // Для теста.
-            /*if (entityTypeName == "Представители")
-            {
-                int a = 8;
-            }*/
-
             var availableParameters = tmpNavigationParameter.Parameters;
             navigationParameter.Parameters = null;
             var newNavigationParameter = activeNavigationParameter != null 
