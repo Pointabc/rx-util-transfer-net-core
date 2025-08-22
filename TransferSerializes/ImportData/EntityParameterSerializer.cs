@@ -18,7 +18,6 @@ namespace TransferSerializes.ImportData
             this.EntityType = "IDataImportEntityParameter";
         }
 
-        // TODO Реализовать импорт
         public override void Import(object jsonObject)
         {
             var entityParameter = (jsonObject as JObject).ToObject<IDataImportEntityParameter>();

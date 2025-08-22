@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "C:\\forks\\rx-util-transfer-net-core\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|c:\\forks\\rx-util-transfer-net-core\\transferserializes\\importdata\\entityparameterserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|solutionrelative:transferserializes\\importdata\\entityparameterserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|c:\\forks\\rx-util-transfer-net-core\\transferserializes\\importdata\\sqlqueryserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|solutionrelative:transferserializes\\importdata\\sqlqueryserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|c:\\forks\\rx-util-transfer-net-core\\drxtransfer\\models\\importdata\\icollectionentityparameterparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|solutionrelative:drxtransfer\\models\\importdata\\icollectionentityparameterparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|c:\\forks\\rx-util-transfer-net-core\\transferserializes\\documentkindserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|solutionrelative:transferserializes\\documentkindserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|c:\\forks\\rx-util-transfer-net-core\\transferserializes\\importdata\\entitytypeserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|solutionrelative:transferserializes\\importdata\\entitytypeserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|c:\\forks\\rx-util-transfer-net-core\\drxtransfer\\integrationserviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|solutionrelative:drxtransfer\\integrationserviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|c:\\forks\\rx-util-transfer-net-core\\drxtransfer\\models\\importdata\\idataimportstringconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|solutionrelative:drxtransfer\\models\\importdata\\idataimportstringconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|c:\\forks\\rx-util-transfer-net-core\\drxtransfer\\models\\importdata\\idataimportentityparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|solutionrelative:drxtransfer\\models\\importdata\\idataimportentityparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|c:\\forks\\rx-util-transfer-net-core\\transferserializes\\importdata\\childentityparameterserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86DB1F9D-E960-41B4-B637-E4B98889739B}|TransferSerializes\\TransferSerializes.csproj|solutionrelative:transferserializes\\importdata\\childentityparameterserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|c:\\forks\\rx-util-transfer-net-core\\drxtransfer\\models\\importdata\\idataimportsqlquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{160424E2-C322-44A4-9B4E-F561F62CC303}|DrxTransfer\\DrxTransfer.csproj|solutionrelative:drxtransfer\\models\\importdata\\idataimportsqlquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,53 +39,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ICollectionEntityParameterParameter.cs",
-              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\Models\\ImportData\\ICollectionEntityParameterParameter.cs",
-              "RelativeDocumentMoniker": "DrxTransfer\\Models\\ImportData\\ICollectionEntityParameterParameter.cs",
-              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\Models\\ImportData\\ICollectionEntityParameterParameter.cs",
-              "RelativeToolTip": "DrxTransfer\\Models\\ImportData\\ICollectionEntityParameterParameter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA0AAAAAAAAAA==",
+              "Title": "DocumentKindSerializer.cs",
+              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\DocumentKindSerializer.cs",
+              "RelativeDocumentMoniker": "TransferSerializes\\DocumentKindSerializer.cs",
+              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\DocumentKindSerializer.cs",
+              "RelativeToolTip": "TransferSerializes\\DocumentKindSerializer.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowCUAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T07:03:22.017Z",
+              "WhenOpened": "2025-08-22T12:04:33.36Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EntityParameterSerializer.cs",
-              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\ImportData\\EntityParameterSerializer.cs",
-              "RelativeDocumentMoniker": "TransferSerializes\\ImportData\\EntityParameterSerializer.cs",
-              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\ImportData\\EntityParameterSerializer.cs",
-              "RelativeToolTip": "TransferSerializes\\ImportData\\EntityParameterSerializer.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAwwFUAAABAAAAAAAAAAA==",
+              "Title": "SQLQuerySerializer.cs",
+              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\ImportData\\SQLQuerySerializer.cs",
+              "RelativeDocumentMoniker": "TransferSerializes\\ImportData\\SQLQuerySerializer.cs",
+              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\ImportData\\SQLQuerySerializer.cs",
+              "RelativeToolTip": "TransferSerializes\\ImportData\\SQLQuerySerializer.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAD4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T09:03:34.234Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IDataImportEntityParameter.cs",
-              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\Models\\ImportData\\IDataImportEntityParameter.cs",
-              "RelativeDocumentMoniker": "DrxTransfer\\Models\\ImportData\\IDataImportEntityParameter.cs",
-              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\Models\\ImportData\\IDataImportEntityParameter.cs",
-              "RelativeToolTip": "DrxTransfer\\Models\\ImportData\\IDataImportEntityParameter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T06:36:05.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IntegrationServiceClient.cs",
-              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\IntegrationServiceClient.cs",
-              "RelativeDocumentMoniker": "DrxTransfer\\IntegrationServiceClient.cs",
-              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\IntegrationServiceClient.cs",
-              "RelativeToolTip": "DrxTransfer\\IntegrationServiceClient.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAwwE0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T04:12:06.155Z",
+              "WhenOpened": "2025-08-22T11:52:44.679Z",
               "EditorCaption": ""
             },
             {
@@ -100,22 +70,35 @@
               "RelativeDocumentMoniker": "TransferSerializes\\ImportData\\EntityTypeSerializer.cs",
               "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\ImportData\\EntityTypeSerializer.cs",
               "RelativeToolTip": "TransferSerializes\\ImportData\\EntityTypeSerializer.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowDkAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAqwDkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T06:57:23.447Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ChildEntityParameterSerializer.cs",
-              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\ImportData\\ChildEntityParameterSerializer.cs",
-              "RelativeDocumentMoniker": "TransferSerializes\\ImportData\\ChildEntityParameterSerializer.cs",
-              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\TransferSerializes\\ImportData\\ChildEntityParameterSerializer.cs",
-              "RelativeToolTip": "TransferSerializes\\ImportData\\ChildEntityParameterSerializer.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAmwGkAAABEAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "IDataImportSQLQuery.cs",
+              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\Models\\ImportData\\IDataImportSQLQuery.cs",
+              "RelativeDocumentMoniker": "DrxTransfer\\Models\\ImportData\\IDataImportSQLQuery.cs",
+              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\Models\\ImportData\\IDataImportSQLQuery.cs",
+              "RelativeToolTip": "DrxTransfer\\Models\\ImportData\\IDataImportSQLQuery.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwAwAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T05:29:15.645Z",
+              "WhenOpened": "2025-08-22T10:39:25.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IDataImportStringConnection.cs",
+              "DocumentMoniker": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\Models\\ImportData\\IDataImportStringConnection.cs",
+              "RelativeDocumentMoniker": "DrxTransfer\\Models\\ImportData\\IDataImportStringConnection.cs",
+              "ToolTip": "C:\\forks\\rx-util-transfer-net-core\\DrxTransfer\\Models\\ImportData\\IDataImportStringConnection.cs",
+              "RelativeToolTip": "DrxTransfer\\Models\\ImportData\\IDataImportStringConnection.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAIwBUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T10:21:47.764Z",
               "EditorCaption": ""
             }
           ]
